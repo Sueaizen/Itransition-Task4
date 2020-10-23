@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebApplication15.Areas.Identity.Data.WebApplication15User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastLogingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <form method="post"><input type="checkbox" asp-controller="WebApplication15User1" asp-action="SelectItem" asp-route-id="@item.Id" /></form>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.LastLogingTime)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Block</a>
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
